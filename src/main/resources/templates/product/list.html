@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head
+	th:replace="/common/head :: head_fragment(title = 'test', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+	<div class="container">
+		<a href="/product/create" class="btn btn-primary">create</a>
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">id</th>
+						<th scope="col">Name</th>
+						<th scope="col">update date</th>
+						<th scope="col">create date</th>
+						<th scope="col">options</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="product : ${productList}" th:object="${product}">
+						<th scope="row" th:text="*{id}"></th>
+						<td th:text="*{name}"></td>
+						<td th:text="*{updateDate}"></td>
+						<td th:text="*{createDate}"></td>
+						<td><a th:href="@{/product/{id} (id=*{id})}"
+							th:text="infomation"></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				<li
+					th:attr="class = ${listPerPage.isFirst()} ? 'page-item disabled' : 'page-item'"><a
+					class="page-link"
+					th:href="@{/product?page={page} (page = *{page} - 1)}">Previous</a></li>
+				<li th:each="iPage : ${pageNumbers}"
+					th:attr="class = ${iPage} == ${page} ? 'page-item active' : 'page-item'"><a
+					class="page-link"
+					th:href="@{/product?page={page} (page = *{iPage})}"
+					th:text="*{iPage}"></a></li>
+				<li
+					th:attr="class = ${listPerPage.isLast()} ? 'page-item disabled' : 'page-item'"><a
+					class="page-link"
+					th:href="@{/product?page={page} (page = *{page} + 1)}">Next</a></li>
+			</ul>
+		</nav>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head
+	th:replace="/common/head :: head_fragment(title = 'test', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+	<div th:if="${exception}" th:text="${exception}" class="danger"></div>
+	<div th:if="${product}" class="container" th:object="${product}">
+
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title" th:text="*{name}"></h4>
+				<p class="card-text" th:text="*{shop.name}"></p>
+				<p class="card-text" th:text="*{updateDate}"></p>
+				<p class="card-text" th:text="*{createDate}"></p>
+				<div class="card-text" th:each="category : *{categories}">
+					<p class="card-text" th:text="${category.name}"></p>
+				</div>
+				<a href="/product" class="btn btn-warning">back</a> <a
+					th:href="@{/product/update/{id} (id=*{id})}"
+					class="btn btn-primary">update</a>
+				<form action="/product/remove" method="post">
+					<input hidden="true" th:field="${removeRequest.id}"> <input
+						hidden="true" th:field="${removeRequest.updateDate}">
+					<button type="submit" class="btn btn-danger">remove</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

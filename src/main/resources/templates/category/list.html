@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head
+	th:replace="/common/head :: head_fragment(title = 'test', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+<div class="container">
+<a href="/category/create" class="btn btn-primary">create</a>
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Name</th>
+					<th scope="col">update date</th>
+					<th scope="col">create date</th>
+					<th scope="col">options</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="category : ${categoriesList}" th:object="${category}">
+					<th scope="row" th:text="*{id}"></th>
+					<td  th:text="*{name}"></td>
+					<td  th:text="*{updateDate}"></td>
+					<td  th:text="*{createDate}"></td>
+					<td> 
+					<a th:href="@{/category/{id} (id=*{id})}" th:text="infomation"></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</body>
+</html>

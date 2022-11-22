@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head
+	th:replace="/common/head :: head_fragment(title = 'test', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+	<div th:if="${exception}" th:text="${exception}" class="danger"></div>
+	<div th:if="${category}" class="container" th:object="${category}">
+
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title" th:text="*{name}"></h4>
+				<p class="card-text" th:text="*{updateDate}"></p>
+				<p class="card-text" th:text="*{createDate}"></p>
+				<a href="/shop" class="btn btn-warning">back</a> <a
+					th:href="@{/category/update/{id} (id=*{id})}" class="btn btn-primary">update</a>
+				<form action="/category/remove" method="post">
+					<input hidden="true" th:field="${removeRequest.id}"> <input
+						hidden="true" th:field="${removeRequest.updateDate}">
+					<button type="submit" class="btn btn-danger">remove</button>
+				</form> 
+			</div>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Name</th>
+					<th scope="col">createDate</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product : *{products}" th:object="${product}">
+					<th scope="row" th:text="*{id}"></th>
+					<td th:text="*{name}"></td>
+					<td th:text="*{createDate}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
