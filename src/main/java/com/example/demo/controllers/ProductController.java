@@ -31,8 +31,11 @@ import com.example.demo.services.CategoryService;
 import com.example.demo.services.ProductService;
 import com.example.demo.services.ShopService;
 
+import lombok.AllArgsConstructor;
+
 @Controller
 @RequestMapping("product")
+@AllArgsConstructor
 public class ProductController implements IController<Long> {
 	private static int SIZE_PAGE = 3;
 

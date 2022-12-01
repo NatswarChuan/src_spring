@@ -108,4 +108,8 @@ public class ProductService extends AbService<Product, Long> {
 		
 		this.create(product);
 	}
+	
+	public List<Product> test(long id){
+		return productRepository.getProduct(id);
+	}
 }

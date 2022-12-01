@@ -16,6 +16,7 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -44,6 +45,7 @@ public class Product {
 	@Column(name = "create_date", updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@JsonProperty(value = "create_date")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	protected Date createDate;
 
 	/**
@@ -52,6 +54,7 @@ public class Product {
 	@Column(name = "update_date")
 	@JsonProperty(value = "update_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	protected Date updateDate;
 
 	@ManyToMany(targetEntity = Category.class)

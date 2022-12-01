@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `db_demo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `db_demo`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_demo
@@ -66,7 +64,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (3,'p3ssssss',4,'2022-11-22 10:50:12','2022-11-18 09:57:05'),(2,'p2',1,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(1,'p1',1,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(4,'p4',4,'2022-11-22 11:04:54','2022-11-18 09:57:05'),(5,'p5',2,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(6,'p6',2,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(11,'ssssssss',3,'2022-11-22 10:50:47','2022-11-22 10:19:09'),(8,'p8sss',3,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(9,'p9',3,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(10,'sssss',3,'2022-11-21 12:03:20','2022-11-21 12:03:20'),(12,'sssss',1,'2022-11-22 10:22:39','2022-11-22 10:22:39');
+INSERT INTO `products` VALUES (3,'p3ssssss',4,'2022-12-01 10:57:51','2022-11-18 09:57:05'),(2,'p2',1,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(1,'p1',1,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(4,'p4',4,'2022-11-22 11:04:54','2022-11-18 09:57:05'),(5,'p5',2,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(6,'p6',2,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(11,'ssssssss',3,'2022-11-22 10:50:47','2022-11-22 10:19:09'),(8,'p8sss',3,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(9,'p9',3,'2022-11-18 09:57:05','2022-11-18 09:57:05'),(10,'sssss',3,'2022-11-21 12:03:20','2022-11-21 12:03:20'),(12,'sssss',1,'2022-11-22 10:22:39','2022-11-22 10:22:39');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +88,7 @@ CREATE TABLE `products_categories` (
 
 LOCK TABLES `products_categories` WRITE;
 /*!40000 ALTER TABLE `products_categories` DISABLE KEYS */;
-INSERT INTO `products_categories` VALUES (1,10),(2,10),(3,2),(3,3),(3,4),(3,5),(3,6),(3,7),(3,8),(3,9),(3,10),(4,3),(4,4),(4,5),(4,6),(11,2),(11,3),(11,4),(11,5),(11,6),(12,2),(12,3),(12,4),(12,5),(12,6),(12,7),(12,8),(12,9),(12,10);
+INSERT INTO `products_categories` VALUES (1,10),(2,10),(3,2),(3,3),(3,5),(3,6),(4,3),(4,4),(4,5),(4,6),(11,2),(11,3),(11,4),(11,5),(11,6),(12,2),(12,3),(12,4),(12,5),(12,6),(12,7),(12,8),(12,9),(12,10);
 /*!40000 ALTER TABLE `products_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,6 +117,33 @@ LOCK TABLES `shops` WRITE;
 INSERT INTO `shops` VALUES (1,'s1','2022-11-18 09:57:37','2022-11-18 09:57:37'),(2,'s2','2022-11-18 09:57:37','2022-11-18 09:57:37'),(3,'s3ssssssss','2022-11-18 09:57:37','2022-11-19 09:45:58'),(4,'1111','2022-11-21 11:11:31','2022-11-21 11:11:31');
 /*!40000 ALTER TABLE `shops` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `create_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES ('chuan1','aaaa',1,'2022-12-01 12:08:28','2022-12-01 12:08:28'),('chuan','$2a$10$ob5LF/5OCktnCi8tYurOxeN7tCA9mkSrOApFRpRJJe4bTsgTATiHO',2,'2022-12-01 12:35:48','2022-12-01 12:35:48'),('chuan1971vip','$2a$10$/ATTlT8brdXstkVdzcL28u31UWwpNzejbpCzVsVtxldwgwXLti5Ee',3,'2022-12-01 14:22:10','2022-12-01 14:22:10');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -129,4 +154,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-30 10:11:38
+-- Dump completed on 2022-12-01 15:29:32
