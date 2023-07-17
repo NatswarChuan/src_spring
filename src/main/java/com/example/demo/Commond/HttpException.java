@@ -1,4 +1,4 @@
-package com.example.demo.Commond;
+package com.example.demo.commond;
 
 import org.springframework.http.HttpStatus;
 

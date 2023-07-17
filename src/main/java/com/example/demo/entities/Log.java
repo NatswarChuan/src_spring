@@ -1,4 +1,4 @@
-package com.example.demo.Entities;
+package com.example.demo.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +22,7 @@ import lombok.*;
  */
 @Data
 @Entity
-@Table(name = "csc_logs", schema = "chat_cansa")
+@Table(name = "dm_logs", schema = "demo")
 public class Log implements Serializable {
 
     /**

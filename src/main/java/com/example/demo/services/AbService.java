@@ -1,4 +1,4 @@
-package com.example.cansachat.Services;
+package com.example.demo.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,9 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.cansachat.Commond.HttpException;
-import com.example.cansachat.Interfaces.IDto;
-import com.example.cansachat.Interfaces.IService;
+import com.example.demo.commond.HttpException;
+import com.example.demo.interfaces.IDto;
+import com.example.demo.interfaces.IService;
 
 /**
  * Lớp abstract đại diện cho một dịch vụ cơ bản.

@@ -1,4 +1,4 @@
-package com.example.demo.Configs;
+package com.example.demo.configs;
 
 import java.util.List;
 

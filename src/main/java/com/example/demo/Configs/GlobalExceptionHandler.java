@@ -1,4 +1,4 @@
-package com.example.demo.Configs;
+package com.example.demo.configs;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -14,10 +14,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.example.demo.Commond.HttpException;
-import com.example.demo.Commond.ResponseData;
-import com.example.demo.Dtos.Responses.ValidationFailResponse;
-import com.example.demo.Services.LogService;
+import com.example.demo.commond.HttpException;
+import com.example.demo.commond.ResponseData;
+import com.example.demo.dtos.responses.ValidationFailResponse;
+import com.example.demo.services.LogService;
 
 import jakarta.servlet.http.HttpServletRequest;
 

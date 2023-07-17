@@ -1,4 +1,4 @@
-package com.example.demo.Interfaces;
+package com.example.demo.interfaces;
 
 /**
  * Giao diện đại diện cho một DTO (Data Transfer Object).

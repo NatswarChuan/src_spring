@@ -1,8 +1,8 @@
-package com.example.demo.Controllers;
+package com.example.demo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.demo.Services.LogService;
+import com.example.demo.services.LogService;
 
 import jakarta.servlet.http.HttpServletRequest;
 

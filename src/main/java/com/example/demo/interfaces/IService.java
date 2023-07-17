@@ -1,10 +1,10 @@
-package com.example.demo.Interfaces;
+package com.example.demo.interfaces;
 
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 
-import com.example.demo.Commond.HttpException;
+import com.example.demo.commond.HttpException;
 
 /**
  * Giao diện dịch vụ chung (service) cho các thực thể (entity).

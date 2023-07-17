@@ -1,4 +1,4 @@
-package com.example.demo.Commond;
+package com.example.demo.commond;
 
 /**
  * Định nghĩa các hằng số cho các loại log.

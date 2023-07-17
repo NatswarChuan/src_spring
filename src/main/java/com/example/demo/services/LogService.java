@@ -1,11 +1,11 @@
-package com.example.demo.Services;
+package com.example.demo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.Commond.LogType;
-import com.example.demo.Entities.Log;
-import com.example.demo.Repositories.LogRepository;
+import com.example.demo.commond.LogType;
+import com.example.demo.entities.Log;
+import com.example.demo.repositories.LogRepository;
 
 /**
  * Dịch vụ ghi log.
