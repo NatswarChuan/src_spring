@@ -1,22 +1,23 @@
-package com.example.demo.interfaces;
+package com.example.demo.Interfaces;
 
 /**
- * Interface for data transfer object
- * 
- * @author natsw
+ * Giao diện đại diện cho một DTO (Data Transfer Object).
  *
- * @param <E> type of entity
+ * @param <E> Kiểu dữ liệu của entity tương ứng với DTO.
  */
 public interface IDto<E> {
-	/**
-	 * parse dto to entity
-	 * @return entity
-	 */
-	public E toEntity();
-	
-	/**
-	 * parse entity to dto
-	 * @param entity
-	 */
-	public void parseDto(E entity);
+
+    /**
+     * Chuyển đổi DTO thành entity.
+     *
+     * @return Entity tương ứng với DTO.
+     */
+    public E toEntity();
+
+    /**
+     * Chuyển đổi entity thành DTO.
+     *
+     * @param entity Entity cần chuyển đổi thành DTO.
+     */
+    public void toDto(E entity);
 }
