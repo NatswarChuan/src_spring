@@ -13,6 +13,24 @@ import com.example.demo.commond.HttpException;
  * @param <ID> Kiểu dữ liệu của khóa chính (ID) của thực thể.
  */
 public interface IService<E, ID> {
+    /**
+     * Lấy danh sách tất cả các thực thể.
+     *
+     * @return Danh sách tất cả các thực thể.     
+     * @param dtoClass Kiểu dữ liệu của DTO.
+     * @throws HttpException Ngoại lệ nếu có lỗi xảy ra.
+     */
+    public <S extends IDto<E>> List<S> findAll(Class<S> dtoClass) throws HttpException;
+
+    /**
+     * Lấy thực thể theo khóa chính (ID).
+     *
+     * @param id Khóa chính (ID) của thực thể.
+     * @param dtoClass Kiểu dữ liệu của DTO.
+     * @return Thực thể tìm thấy hoặc null nếu không tìm thấy.
+     * @throws HttpException Ngoại lệ nếu có lỗi xảy ra.
+     */
+    public <S extends IDto<E>> S findById(ID id,Class<S> dtoClass) throws HttpException;
 
     /**
      * Lấy danh sách tất cả các thực thể.
