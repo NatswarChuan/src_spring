@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +49,30 @@ public abstract class AbService<E, ID> implements IService<E, ID> {
      * @throws HttpException nếu danh sách thực thể trống.
      */
     @Override
+    public <S extends IDto<E>> List<S> findAll(Class<S> dtoClass) throws HttpException {
+        List<E> data = repository.findAll();
+        if (data.size() < 1) {
+            throw new HttpException(HttpStatus.BAD_REQUEST, "Danh sách thực thể trống");
+        }
+        List<S> result = new ArrayList<>();
+        for (E e : data) {
+            try {
+                S s = dtoClass.getDeclaredConstructor().newInstance();
+                s.toDto(e);
+                result.add(s);
+            } catch (Exception ex) {
+                throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
+            }
+        }
+        return result;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @throws HttpException nếu danh sách thực thể trống.
+     */
+    @Override
     public Page<E> findAll(int page, int size) throws HttpException {
         Pageable paging = PageRequest.of(page, size);
         Page<E> result = repository.findAll(paging);
@@ -69,6 +94,26 @@ public abstract class AbService<E, ID> implements IService<E, ID> {
             throw new HttpException(HttpStatus.BAD_REQUEST, "Không tìm thấy thực thể với id= " + id);
         }
         return result.get();
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @throws HttpException nếu không tìm thấy thực thể với id tương ứng.
+     */
+    @Override
+    public <S extends IDto<E>> S findById(ID id, Class<S> dtoClass) throws HttpException {
+        Optional<E> result = repository.findById(id);
+        if (result.isEmpty()) {
+            throw new HttpException(HttpStatus.BAD_REQUEST, "Không tìm thấy thực thể với id= " + id);
+        }
+        try {
+            S s = dtoClass.getDeclaredConstructor().newInstance();
+            s.toDto(result.get());
+            return s;
+        } catch (Exception ex) {
+            throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
+        }
     }
 
     /**

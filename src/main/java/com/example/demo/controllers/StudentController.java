@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import com.example.demo.commond.HttpException;
 import com.example.demo.commond.ResponseData;
 import com.example.demo.dtos.responses.StudentResponseDto;
-import com.example.demo.entities.Student;
 import com.example.demo.interfaces.Services.IStudentService;
 
 @RestController
@@ -22,12 +21,7 @@ public class StudentController {
 
     @GetMapping({"/",""})
     public ResponseEntity<ResponseData<List<StudentResponseDto>>> findAll() throws HttpException {
-        List<StudentResponseDto> data = new ArrayList<>();
-        for (Student student : studentService.findAll()) {
-            StudentResponseDto studentResponseDto = new StudentResponseDto();
-            studentResponseDto.toDto(student);
-            data.add(studentResponseDto);
-        }
+        List<StudentResponseDto> data = studentService.findAll(StudentResponseDto.class);
         ResponseData<List<StudentResponseDto>> responseData = new ResponseData<>(HttpStatus.OK,"List of student",data);
         return ResponseEntity.ok(responseData);
     }
