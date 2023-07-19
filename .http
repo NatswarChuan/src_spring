@@ -1,1 +1,5 @@
 GET http://127.0.0.1:8080/api/student HTTP/1.0
+
+###
+
+GET http://127.0.0.1:8080/api/student/9397d0fe-9838-4456-a5ce-568495d77cb3 HTTP/1.0

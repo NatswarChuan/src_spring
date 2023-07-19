@@ -25,4 +25,11 @@ public class StudentController {
         ResponseData<List<StudentResponseDto>> responseData = new ResponseData<>(HttpStatus.OK,"List of student",data);
         return ResponseEntity.ok(responseData);
     }
+
+    @GetMapping({"/{id}","/{id}/"})
+    public ResponseEntity<ResponseData<StudentResponseDto>> findById(@PathVariable UUID id ) throws HttpException {
+        StudentResponseDto data = studentService.findById(id,StudentResponseDto.class);
+        ResponseData<StudentResponseDto> responseData = new ResponseData<>(HttpStatus.OK,"Student id="+id.toString(),data);
+        return ResponseEntity.ok(responseData);
+    }
 }

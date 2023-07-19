@@ -70,6 +70,27 @@ public abstract class AbService<E, ID> implements IService<E, ID> {
     /**
      * {@inheritDoc}
      *
+     * @throws HttpException nếu không tìm thấy thực thể với id tương ứng.
+     */
+    @Override
+    public <S extends IDto<E>> S findById(ID id, Class<S> dtoClass) throws HttpException {
+        Optional<E> result = repository.findById(id);
+        if (result.isEmpty()) {
+            throw new HttpException(HttpStatus.BAD_REQUEST, "Không tìm thấy thực thể với id= " + id);
+        }
+        try {
+            S s = dtoClass.getDeclaredConstructor().newInstance();
+            s.toDto(result.get());
+            return s;
+        } catch (Exception ex) {
+            throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
+        }
+    }
+
+
+    /**
+     * {@inheritDoc}
+     *
      * @throws HttpException nếu danh sách thực thể trống.
      */
     @Override
@@ -96,26 +117,7 @@ public abstract class AbService<E, ID> implements IService<E, ID> {
         return result.get();
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * @throws HttpException nếu không tìm thấy thực thể với id tương ứng.
-     */
-    @Override
-    public <S extends IDto<E>> S findById(ID id, Class<S> dtoClass) throws HttpException {
-        Optional<E> result = repository.findById(id);
-        if (result.isEmpty()) {
-            throw new HttpException(HttpStatus.BAD_REQUEST, "Không tìm thấy thực thể với id= " + id);
-        }
-        try {
-            S s = dtoClass.getDeclaredConstructor().newInstance();
-            s.toDto(result.get());
-            return s;
-        } catch (Exception ex) {
-            throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
-        }
-    }
-
+    
     /**
      * {@inheritDoc}
      *
