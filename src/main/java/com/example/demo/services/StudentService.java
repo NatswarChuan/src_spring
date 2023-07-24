@@ -5,7 +5,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Student;
-import com.example.demo.interfaces.Services.IStudentService;
+import com.example.demo.interfaces.services.IStudentService;
 
 import jakarta.transaction.Transactional;
 

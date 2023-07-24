@@ -22,6 +22,6 @@ public class StudentResponseDto implements IDto<Student>{
 
     @Override
     public void toDto(Student entity) {
-       BeanUtils.copyProperties(entity, this, "id");
+       BeanUtils.copyProperties(entity, this, "id","classes");
     }
 }

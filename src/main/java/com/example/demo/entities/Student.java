@@ -2,6 +2,7 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 
 import lombok.*;
@@ -17,4 +18,10 @@ public class Student implements Serializable {
     
     @Column(name = "student_name")
     private String name;
+
+    @ManyToMany(targetEntity = Class.class)
+	@JoinTable(name = "rls_students_classes", schema = "relationship", 
+			joinColumns={@JoinColumn(name="student_id", referencedColumnName="student_id")}, 
+            inverseJoinColumns={@JoinColumn(name="class_id", referencedColumnName="class_id")})
+    private List<Class> classes;
 }

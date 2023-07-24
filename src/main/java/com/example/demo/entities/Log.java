@@ -22,7 +22,7 @@ import lombok.*;
  */
 @Data
 @Entity
-@Table(name = "rtls_logs", schema = "relationship")
+@Table(name = "rls_logs", schema = "relationship")
 public class Log implements Serializable {
 
     /**

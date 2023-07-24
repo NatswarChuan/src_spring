@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.demo.commond.HttpException;
 import com.example.demo.commond.ResponseData;
 import com.example.demo.dtos.responses.StudentResponseDto;
-import com.example.demo.interfaces.Services.IStudentService;
+import com.example.demo.interfaces.services.IStudentService;
 
 @RestController
 @RequestMapping("/api/student")
