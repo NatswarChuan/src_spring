@@ -7,7 +7,6 @@ import org.springframework.beans.BeanUtils;
 
 import com.example.demo.entities.Class;
 import com.example.demo.entities.Student;
-import com.example.demo.entities.Teacher;
 import com.example.demo.interfaces.IDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

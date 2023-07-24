@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import com.example.demo.commond.HttpException;
 import com.example.demo.commond.ResponseData;
 import com.example.demo.dtos.responses.ClassResponseDto;
-import com.example.demo.dtos.responses.StudentResponseDto;
 import com.example.demo.dtos.responses.TeacherResponseDto;
 import com.example.demo.interfaces.services.IClassService;
 
