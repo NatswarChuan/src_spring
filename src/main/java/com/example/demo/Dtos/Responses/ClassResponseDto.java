@@ -23,7 +23,7 @@ public class ClassResponseDto implements IDto<Class> {
     @JsonProperty("teacher")
     private TeacherTempResponse teacher;
 
-    @JsonProperty("class-list")
+    @JsonProperty("student-list")
     private List<StudentTempResponse> studentList;
 
     @Override
@@ -54,6 +54,6 @@ class TeacherTempResponse {
 
 @Data
 class StudentTempResponse {
-    @JsonProperty("class-name")
+    @JsonProperty("student-name")
     private String name;
 }

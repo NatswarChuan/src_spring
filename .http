@@ -3,3 +3,75 @@ GET http://127.0.0.1:8080/api/student HTTP/1.0
 ###
 
 GET http://127.0.0.1:8080/api/student/9397d0fe-9838-4456-a5ce-568495d77cb3 HTTP/1.0
+###
+
+GET http://127.0.0.1:8080/api/class/9fe19c1e-ef04-43ce-94fe-303eb0736a96 HTTP/1.0
+
+###
+POST http://127.0.0.1:8080/api/teacher/create HTTP/1.0
+Content-Type: application/json
+
+{
+    "name": "Teacher create test"
+}
+
+###
+POST http://127.0.0.1:8080/api/class/create HTTP/1.0
+Content-Type: application/json
+
+{
+    "name": "Teacher create test",
+    "teacher-id": "f6461341-fd4c-4e18-b6c8-9a5100b302d3",
+    "list-student-id": [
+        "9397d0fe-9838-4456-a5ce-568495d77cb3",
+        "7abaafa5-ceda-4611-8c65-2e4bc7a1cb7d",
+        "77799aed-a573-476b-b64a-ed667fc5478c"
+    ]
+}
+
+###
+PUT http://127.0.0.1:8080/api/teacher/update HTTP/1.0
+Content-Type: application/json
+
+{
+    "id":"f6461341-fd4c-4e18-b6c8-9a5100b302d3",
+    "name": "Teacher update test"
+}
+
+###
+GET http://127.0.0.1:8080/api/teacher/f6461341-fd4c-4e18-b6c8-9a5100b302d3 HTTP/1.0
+
+###
+PUT http://127.0.0.1:8080/api/class/update HTTP/1.0
+Content-Type: application/json
+
+{
+    "id":"9fe19c1e-ef04-43ce-94fe-303eb0736a96",
+    "name": "class update test",
+    "teacher-id": "f6461341-fd4c-4e18-b6c8-9a5100b302d3",
+    "list-student-id": [
+        "9397d0fe-9838-4456-a5ce-568495d77cb3",
+        "7abaafa5-ceda-4611-8c65-2e4bc7a1cb7d",
+        "77799aed-a573-476b-b64a-ed667fc5478c",
+        "29aafbd7-8004-458a-8780-7f8d43d8bf8e"
+    ]
+}
+
+###
+DELETE  http://127.0.0.1:8080/api/class/remove HTTP/1.0
+Content-Type: application/json
+
+{
+    "id":"9fe19c1e-ef04-43ce-94fe-303eb0736a96"
+}
+
+###
+DELETE  http://127.0.0.1:8080/api/teacher/remove HTTP/1.0
+Content-Type: application/json
+
+{
+    "id":"f6461341-fd4c-4e18-b6c8-9a5100b302d3"
+}
+
+###
+GET  http://127.0.0.1:8080/api/teacher/f6461341-fd4c-4e18-b6c8-9a5100b302d3 HTTP/1.0

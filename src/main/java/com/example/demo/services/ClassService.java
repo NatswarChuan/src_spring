@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -36,5 +37,10 @@ public class ClassService extends AbService<Class, UUID> implements IClassServic
         Teacher teacher = opnTeacher.get();
         result.toDto(teacher);
         return result;
+    }
+
+    @Override
+    public List<Class> findClasses(List<UUID> ids) throws HttpException {
+        return this.classRepository.findByIdIn(ids);
     }
 }
