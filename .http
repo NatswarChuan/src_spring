@@ -75,3 +75,27 @@ Content-Type: application/json
 
 ###
 GET  http://127.0.0.1:8080/api/teacher/f6461341-fd4c-4e18-b6c8-9a5100b302d3 HTTP/1.0
+
+###
+POST   http://127.0.0.1:8080/api/user/login HTTP/1.0
+Content-Type: application/json
+
+{
+    "user-name":"chuan1971vip",
+    "password":"123456"
+}
+
+###
+POST   http://127.0.0.1:8080/api/user/refresh HTTP/1.0
+Content-Type: application/json
+
+{
+    "refresh-token":"c1bab71a-8995-42a0-af7d-1166d4aaef57"
+}
+
+//eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoiNGU4OTY0MjktNDJiMC00YmQ2LTk4NzgtYzFlYzJkMDZmY2JjIiwiZXhwIjoxNjkxMTI0NTc4LCJpYXQiOjE2OTExMjA5Nzh9.q8tBaKG6yGJQJWG3jqFkrUK4jOGJMP7_am0UZBj10EZ5m6rolzCg0nWhob-Fhzv_3lTwVyolggGSn7nrqyERQg
+//
+
+###
+GET http://127.0.0.1:8080/api/teacher HTTP/1.0
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoiNGU4OTY0MjktNDJiMC00YmQ2LTk4NzgtYzFlYzJkMDZmY2JjIiwiZXhwIjoxNjkxMTI1NTg5LCJpYXQiOjE2OTExMjE5ODl9.E0WD5XlAaIi7HhivLCiJIHAMStUkEPG3cTRPMyZYqVu7weEKTuQzwnezv7IDZZQmzEAd3md17oVJjcvHSPOr8Q

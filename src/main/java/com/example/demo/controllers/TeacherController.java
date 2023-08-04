@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.entities.Class;
-
+import com.example.demo.entities.User;
 import com.example.demo.commond.HttpException;
 import com.example.demo.commond.ResponseData;
 import com.example.demo.dtos.requests.TeacherCreateRequestDto;
@@ -18,10 +18,13 @@ import com.example.demo.dtos.requests.TeacherUpdateRequestDto;
 import com.example.demo.dtos.responses.TeacherResponseDto;
 import com.example.demo.interfaces.services.IClassService;
 import com.example.demo.interfaces.services.ITeacherService;
+import com.example.demo.repositories.UserRepository;
+
+import org.apache.commons.codec.digest.DigestUtils;
 
 @RestController
 @RequestMapping("/api/teacher")
-public class TeacherController {
+public class TeacherController extends AbController {
     @Autowired
     ITeacherService teacherService;
 
@@ -31,7 +34,8 @@ public class TeacherController {
     @GetMapping({ "/", "" })
     public ResponseEntity<ResponseData<List<TeacherResponseDto>>> findAll() throws HttpException {
         List<TeacherResponseDto> data = teacherService.findAll(TeacherResponseDto.class);
-        ResponseData<List<TeacherResponseDto>> responseData = new ResponseData<>(HttpStatus.OK, "All data of class",
+        User user = (User)this.request.getAttribute("user");
+        ResponseData<List<TeacherResponseDto>> responseData = new ResponseData<>(HttpStatus.OK, user.toString(),
                 data);
         return ResponseEntity.ok(responseData);
     }

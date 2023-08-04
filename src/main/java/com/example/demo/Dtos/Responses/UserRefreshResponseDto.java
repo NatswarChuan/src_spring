@@ -1,0 +1,15 @@
+package com.example.demo.dtos.responses;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.*;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+public class UserRefreshResponseDto {
+    @JsonProperty("access-token")
+    String accessToken;
+}
