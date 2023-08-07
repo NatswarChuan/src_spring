@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.example.demo.commond.HttpException;
 import com.example.demo.commond.ResponseData;
 import com.example.demo.dtos.responses.ValidationFailResponse;
-import com.example.demo.services.LogService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -34,9 +33,6 @@ public class GlobalExceptionHandler {
 
     @Autowired
     HttpServletRequest request;
-
-    @Autowired
-    LogService logService;
 
     /**
      * 
@@ -83,8 +79,6 @@ public class GlobalExceptionHandler {
         String message = ex.getMessage();
         HttpStatus status = ex.getStatus();
         ResponseData<Object> response = new ResponseData<>(status,message,null);
-
-        logService.exception(request.getRequestURI(), "exception: " + ex.getMessage());
 
         return ResponseEntity.status(status).body(response);
     }

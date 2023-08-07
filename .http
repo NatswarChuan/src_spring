@@ -1,0 +1,12 @@
+POST http://127.0.0.1:8080/api/student HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"class test",
+    "teacher-id":"64d06d955f33afa1d220917c",
+    "student-list-ids":[
+        "64d063095f33afa1d2209152",
+        "64d067ea5f33afa1d220915a",
+        "64d068205f33afa1d220915c"
+    ]
+}

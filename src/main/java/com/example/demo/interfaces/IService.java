@@ -20,7 +20,7 @@ public interface IService<E, ID> {
      * @param dtoClass Kiểu dữ liệu của DTO.
      * @throws HttpException Ngoại lệ nếu có lỗi xảy ra.
      */
-    public <S extends IDto<E>> List<S> findAll(Class<S> dtoClass) throws HttpException;
+    public <S> List<S> findAll(Class<S> dtoClass) throws HttpException;
 
     /**
      * Lấy thực thể theo khóa chính (ID).
@@ -30,7 +30,7 @@ public interface IService<E, ID> {
      * @return Thực thể tìm thấy hoặc null nếu không tìm thấy.
      * @throws HttpException Ngoại lệ nếu có lỗi xảy ra.
      */
-    public <S extends IDto<E>> S findById(ID id,Class<S> dtoClass) throws HttpException;
+    public <S> S findById(ID id,Class<S> dtoClass) throws HttpException;
 
     /**
      * Lấy danh sách tất cả các thực thể.
@@ -65,7 +65,7 @@ public interface IService<E, ID> {
      * @param newEntity Đối tượng DTO (Data Transfer Object) chứa thông tin thực thể mới.
      * @throws HttpException Ngoại lệ nếu có lỗi xảy ra.
      */
-    public <S extends IDto<E>> void create(S newEntity) throws HttpException;
+    public <S> void create(S newEntity,Class<E> entityClass) throws HttpException;
 
     /**
      * Cập nhật thông tin của thực thể.
@@ -74,7 +74,7 @@ public interface IService<E, ID> {
      * @param id Khóa chính (ID) của thực thể cần cập nhật.
      * @throws HttpException Ngoại lệ nếu có lỗi xảy ra.
      */
-    public <S extends IDto<E>> void update(S updateEntity, ID id) throws HttpException;
+    public <S> void update(S updateEntity, ID id,Class<E> entityClass) throws HttpException;
 
     /**
      * Xóa thực thể.
@@ -83,31 +83,5 @@ public interface IService<E, ID> {
      * @param id Khóa chính (ID) của thực thể cần xóa.
      * @throws HttpException Ngoại lệ nếu có lỗi xảy ra.
      */
-    public <S extends IDto<E>> void delete(S deleteEntity, ID id) throws HttpException;
-
-    /**
-     * Tạo mới thực thể.
-     *
-     * @param newEntity Thực thể mới cần tạo.
-     * @throws HttpException Ngoại lệ nếu có lỗi xảy ra.
-     */
-    public void create(E newEntity) throws HttpException;
-
-    /**
-     * Cập nhật thông tin của thực thể.
-     *
-     * @param updateEntity Thực thể chứa thông tin cập nhật.
-     * @param id Khóa chính (ID) của thực thể cần cập nhật.
-     * @throws HttpException Ngoại lệ nếu có lỗi xảy ra.
-     */
-    public void update(E updateEntity, ID id) throws HttpException;
-
-    /**
-     * Xóa thực thể.
-     *
-     * @param deleteEntity Thực thể cần xóa.
-     * @param id Khóa chính (ID) của thực thể cần xóa.
-     * @throws HttpException Ngoại lệ nếu có lỗi xảy ra.
-     */
-    public void delete(E deleteEntity, ID id) throws HttpException;
+    public <S> void delete(S deleteEntity, ID id,Class<E> entityClass) throws HttpException;
 }
